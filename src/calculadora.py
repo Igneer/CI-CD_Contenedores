@@ -4,3 +4,5 @@ class Calculadora:
     def division(self, a:int, b:int):
         return 0 #con error para luego aplicar CI
     
+    def suma(self, a, b):
+        return -a
