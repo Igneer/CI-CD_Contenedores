@@ -6,3 +6,9 @@ class Calculadora:
     
     def suma(self, a, b):
         return -a
+    
+    def resta(self, a :int, b :int):
+        return a 
+    
+    def multiplicacion(self, a :int, b :int):
+        return 3 
