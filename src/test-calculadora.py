@@ -3,8 +3,24 @@ from calculadora import *
 #agregar test 
 calculador = Calculadora()
 
-assert calculador.division(4,0) == Exception # este pasa
-assert calculador.division(4,2) == 2 # este no pasa
-assert calculador.division(15,3) == 5 # este no pasa
-assert calculador.division(1,3) == 0 # este si pasa
-assert calculador.division(3,3) == 1 # este no pasa
+#Test para división
+assert calculador.division(4,0) == Exception # Pasa
+assert calculador.division(4,2) == 2 # No pasa
+assert calculador.division(15,3) == 5 # No pasa
+assert calculador.division(1,3) == 0 # Pasa
+assert calculador.division(3,3) == 1 # No pasa
+
+#Test para resta 
+assert calculador.resta(5,1) == 4 # No pasa
+assert calculador.resta(3,0) == 3 # Pasa 
+assert calculador.resta(0,10) == -10# No para 
+
+#Test para multiplicación 
+
+assert calculador.multiplicacion(4,3) == 12# No pasa
+assert calculador.multiplicacion(3,1) == 3 # Pasa 
+assert calculador.multiplicacion(1,14) == 14 # No pasa
+assert calculador.multiplicacion(7,0) == 0 # No pasa
+assert calculador.multiplicacion(0,8) == 0 # No pasa
+
+#Test para suma 
