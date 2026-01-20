@@ -23,3 +23,6 @@ jobs:
     - name: Testeo con pytest
       working-directory: src
       run: pytest test-calculadora.py 
+    - name: Linteo
+      working-directory: src
+      run: ruff check . 
