@@ -5,13 +5,13 @@ class Calculadora:
     def division(self, a:int, b:int):
         if b == 0:
             return Exception
-        return 0 #con error para luego aplicar CI
+        return a//b #con error para luego aplicar CI
     
-    def suma(self, a, b):
-        return -a
+    def suma(self, a:int, b:int):
+        return a + b
     
     def resta(self, a :int, b :int):
-        return a 
+        return a - b
     
     def multiplicacion(self, a :int, b :int):
-        return 3 
+        return a * b 
