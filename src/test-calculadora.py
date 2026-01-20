@@ -1,11 +1,11 @@
-from calculadora import *
+from calculadora import Calculadora
 
 #agregar test 
 calculador = Calculadora()
 
 #Test para división
 def test_div():
-    assert calculador.division(4,0) == Exception # Pasa
+    assert calculador.division(4,0) is Exception # Pasa
     assert calculador.division(4,2) == 2 # No pasa
     assert calculador.division(15,3) == 5 # No pasa
     assert calculador.division(1,3) == 0 # Pasa
