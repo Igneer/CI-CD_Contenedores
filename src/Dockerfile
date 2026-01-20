@@ -6,6 +6,6 @@ COPY src/libraries.txt .
 
 RUN pip install --no-cache-dir -r libraries.txt
 
-COPY src/ .
+COPY src
 
 CMD ["python"]
