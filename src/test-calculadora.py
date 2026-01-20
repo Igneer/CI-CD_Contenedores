@@ -26,7 +26,7 @@ def test_mult():
     assert calculador.multiplicacion(0,8) == 0 # No pasa
 
 #Test para suma 
-
-# test_div()
-# test_resta()
-# test_mult()
+def test_suma():
+    assert calculador.suma(4,3) == 7 # pasa
+    assert calculador.suma(4,5) == 4 # No pasa
+    assert calculador.suma(-3,-3) == -6 # Pasa
