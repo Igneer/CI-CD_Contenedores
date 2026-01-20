@@ -1,3 +1,4 @@
+import os # importamos una libreria que no se usa para poder demostrar el Linteo del codigo para hacer mas robusta la integracion continua
 class Calculadora:
     def __init__(self):
         print ("CALCULADORA CREADA")
