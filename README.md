@@ -37,6 +37,9 @@ Para la aplicación de **CD**, despliegue continuo, utilizamos la misma herramie
 
 ## Desafíos y consideraciones
 
+Para dar un uso correcto a la técnica **CI** tiene como desafío el realizar el uso correcto de los test para que se pueda tanto como verificar como validar que se llegue a una implementación correcta del proyecto. Pero nada te puede asegurar que se cumplan las condiciones  que se desean, además que conlleva un extenso periodo de tiempo el diseñar e implementar los test necesarios.  
+Otro tema a tener en cuenta es que los _jobs_ se realizen en el archivo de formato .yaml se ejecuten en un orden adecuado, por ejemplo, que se asegure de probar todo antes de realizar la build de la imagen de docker con la última versión del proyecto.   
+Una consideración a tener en cuenta es asegura que los test que se realizan en el entorno del desarrollador se un entorno de mismas características en el entrono de despliegue.  
 
 ## Conclusión
 
