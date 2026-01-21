@@ -5,27 +5,41 @@ Para llevar a cabo el proyecto sobre la implementación de **CI/CD**, que es una
  
 Luego para poder generar los despliegues en la rama correspondiente (en este caso la main) crearemos, a traves de, Github Actions el despliegue continuo **CD** configurando los parámetros dentro del archivo .yaml
 
+
 ## Desarrollo práctico
+
 
 ### CI/CD
 
-Para demostrar de forma sencilla decidimos realizar una calculadora escrita en Python. Entonces decidimos desarrollarlo en dos partes: 
-- **CI** (Integración Continua): Partimos de un código mal implementado, en el que los métodos de la clase calculadora no cumplían su propósito de manera correcta, por ejemplo, las operaciones devolvían valores erróneos. Luego desarrollamos los tests que hemos considerado necesarios para los casos borde acordes a cada operación. 
-Una vez realizado el código de partida, donde previamente se probó que los test no pasaran utilizando _pytest_. A partir de aquí, comenzó la implementación del GitHub Action, el cual facilita la Integración Continua.  
+
+Para demostrar de forma sencilla decidimos realizar una calculadora escrita en Python. Entonces decidimos desarrollarlo en dos partes:
+- **CI** Integración Continua): Partimos de un código mal implementado, en el que los métodos de la clase calculadora no cumplían su propósito de manera correcta, por ejemplo, las operaciones devuelven valores erróneos. Luego desarrollamos los tests que hemos considerado necesarios para los casos borde acordes a cada operación.
+Una vez realizado el código de partida, donde previamente se probó que los test no pasarán utilizando _pytest_. A partir de aquí, comenzó la implementación del GitHub Action, el cual facilita la Integración Continua.  
 Una vez configurado el GitHub Actions, a la hora de realizar un commit donde se implemente
 algún cambio en la funcionalidad de algún módulo del proyecto, se disparará de manera automática
-la creación de un contenedor en la nube con las especificaciones y _jobs_ establecidos en el 
+la creación de un contenedor en la nube con las especificaciones y _jobs_ establecidos en el
 proyecto, donde para este caso simplemente se utiliza las librerías _pytest_, para la ejecución de los tests, y _ruff_, para el _linting _ y formateo del código.  
 
-- **CD** (Despliegue Continuo): Una vez realizado lo anterior, configuramos el GitHub Action 
+
+- **CD** (Despliegue Continuo): Una vez realizado lo anterior, configuramos el GitHub Action
 para implementar, con Docker, el Despliegue Continuo. Para ello agregamos en el archivo .yaml
 los jobs de login-action y build-push-action de docker, los cuales al detectar el push, automáticamente compilan una imagen Docker con las librerías necesarias para el funcionamiento de la aplicación con tan solo ejecutar el comando que se genera en la sección de packages del repositorio. Obteniendo así siempre la última imágen más actualizada del proyecto.
 
 
-## Beneficios de implementar la técnica 
 
-## Desafios y consideraciones 
 
-## Conclusión 
+## Beneficios de implementar la técnica
 
-## Referencias 
+
+A través de la implementación de las herramientas utilizadas para aplicar **CI**, que para este proyecto se conocen como Github Actions, él mismo se beneficia de características como, el testeo automático de módulos/cambios implementados en cada commit que se realice y se pusheen. Permitiendo así detecciones de errores de una manera visible para todo colaborador dentro del proyecto, para poder actuar de manera rápida en las soluciones de los mismos. Obteniendo de esta manera un código de cierta manera controlado bajo posibles políticas de una empresa o equipo de trabajo como así también una robustez y fiabilidad en el mismo.  
+Para la aplicación de **CD**, despliegue continuo, utilizamos la misma herramienta de Github Actions las cuales brindan como beneficio al proyecto, en conjunto con las de **CI**, mantener un despliegue en producción reciente y funcional de manera automatica, disparandose cuando se detecta algún cambio en el repositorio del proyecto siempre y cuando la actualización recibida sea testeada de manera correcta con las herramientas de **CI** previamente configuradas.
+
+
+## Desafíos y consideraciones
+
+
+## Conclusión
+
+
+## Referencias
+
