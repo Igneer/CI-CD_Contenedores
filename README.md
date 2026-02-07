@@ -29,10 +29,9 @@ En caso de encontrar un error, luego de corregirlo se puede reconstruir la image
 ``docker build -t mi-calculadora:latest .``
 
 1. **Modificaciones**
-Luego de haber corregido o hacer alguna adición sobre el codigo, y se corrobora que se quiera subir dichas modificaciones y funcionen correctamente. Se actualizan los cambios en el repo con los siguientes comandos:
-
-``git add .``
-``git commit -m "Comentario explicando la modificación realizada"``
+Luego de haber corregido o hacer alguna adición sobre el codigo, y se corrobora que se quiera subir dichas modificaciones y funcionen correctamente. Se actualizan los cambios en el repo con los siguientes comandos.  
+``git add .``  
+``git commit -m "Comentario explicando la modificación realizada"``  
 ``git push -u origin main``
 
 ## Desarrollo práctico
