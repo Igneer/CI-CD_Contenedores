@@ -13,12 +13,11 @@ Luego para poder generar los despliegues en la rama correspondiente (en este cas
 
 
 Para demostrar de forma sencilla decidimos realizar una calculadora escrita en Python. Entonces decidimos desarrollarlo en dos partes:
-- **CI** Integración Continua): Partimos de un código mal implementado, en el que los métodos de la clase calculadora no cumplían su propósito de manera correcta, por ejemplo, las operaciones devuelven valores erróneos. Luego desarrollamos los tests que hemos considerado necesarios para los casos borde acordes a cada operación.
+- **CI** (Integración Continua): Partimos de un código mal implementado, en el que los métodos de la clase calculadora no cumplían su propósito de manera correcta, por ejemplo, las operaciones devuelven valores erróneos. Luego desarrollamos los tests que hemos considerado necesarios para los casos borde acordes a cada operación.
 Una vez realizado el código de partida, donde previamente se probó que los test no pasarán utilizando _pytest_. A partir de aquí, comenzó la implementación del GitHub Action, el cual facilita la Integración Continua.  
 Una vez configurado el GitHub Actions, a la hora de realizar un commit donde se implemente
 algún cambio en la funcionalidad de algún módulo del proyecto, se disparará de manera automática
-la creación de un contenedor en la nube con las especificaciones y _jobs_ establecidos en el
-proyecto, donde para este caso simplemente se utiliza las librerías _pytest_, para la ejecución de los tests, y _ruff_, para el _linting _ y formateo del código.  
+la creación de un contenedor en la nube con las especificaciones y _jobs_ establecidos en el proyecto, donde para este caso simplemente se utiliza las librerías _pytest_, para la ejecución de los tests, y _ruff_, para el _linting _ y formateo del código.  
 
 
 - **CD** (Despliegue Continuo): Una vez realizado lo anterior, configuramos el GitHub Action
@@ -37,9 +36,18 @@ Para la aplicación de **CD**, despliegue continuo, utilizamos la misma herramie
 
 ## Desafíos y consideraciones
 
+Para dar un uso correcto a la técnica **CI** tiene como desafío el realizar el uso correcto de los test para que se pueda tanto como verificar como validar que se llegue a una implementación correcta del proyecto. Pero nada te puede asegurar que se cumplan las condiciones  que se desean, además que conlleva un extenso periodo de tiempo el diseñar e implementar los test necesarios.  
+Otro tema a tener en cuenta es que los _jobs_ se realizen en el archivo de formato .yaml se ejecuten en un orden adecuado, por ejemplo, que se asegure de probar todo antes de realizar la build de la imagen de docker con la última versión del proyecto.   
+Una consideración a tener en cuenta es asegura que los test que se realizan en el entorno del desarrollador se un entorno de mismas características en el entorno de despliegue.  
 
 ## Conclusión
 
-
+Luego de realizar este proyecto nos llevamos como aprendizaje la importancia y utilidad de aplicar la integración continua para poder mantener una portabilidad y firmeza en el proyecto mientras se está llevando a cabo sosteniendo también el cumplimiento de las políticas dentro del equipo de trabajo.  
+Del despliegue podemos rescatar la utilidad de poder automatizar la construcción de entregables versionados creados en docker, que nos permite ahorrar tiempo que sería utilizado para crear dichos desplegables.  
+Por lo tanto, hemos demostrado que la combinación de SCM  y CI/CD  junto con la tecnología de contenedores, transforma radicalmente la forma de construir software sólido para cualquier proyecto de ingeniería de software moderno que busque escalabilidad y robustez.
+  
 ## Referencias
 
+- [GitHubAction](https://docs.github.com/es/actions/tutorials/build-and-test-code/python)  
+- [Login action para Docker](https://github.com/docker/login-action)
+- [Despliege en Docker](https://github.com/docker/build-push-action)
