@@ -15,25 +15,37 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Configurar entorno Python versión 3 
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12.10"
-    - name: Instalación de dependencias
-      run: pip install -r src/libraries.txt
-    - name: Testeo con pytest
-      working-directory: src
-      run: pytest test-calculadora.py 
-    - name: Linteo
-      working-directory: src
-      run: ruff check .
+    # - name: Configurar entorno Python versión 3 
+    #   uses: actions/setup-python@v3
+    #   with:
+    #     python-version: "3.12.10"
+    # - name: Instalación de dependencias
+    #   run: pip install -r src/libraries.txt
+    # - name: Testeo con pytest
+    #   working-directory: src
+    #   run: pytest test-calculadora.py 
+    # - name: Linteo
+    #   working-directory: src
+    #   run: ruff check .
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build and push
+    # - name: Build and push
+    - name: Imagen docker para testeo
+      uses: docker/build-push-action@v6
+      with:
+          context: .
+          # push: true
+          load: true
+          tags: ghcr.io/igneer/ci-cd_contenedores:latest
+    - name: Ejecutar test en el contenedor
+      run: | 
+        docker run --rm ghcr.io/igneer/ci-cd_contenedores:test pytest src/test-calculadora.py
+
+    - name: Build and Push Final Image
       uses: docker/build-push-action@v6
       with:
           context: .
