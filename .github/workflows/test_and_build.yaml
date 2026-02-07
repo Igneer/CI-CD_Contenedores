@@ -43,7 +43,7 @@ jobs:
           tags: ghcr.io/igneer/ci-cd_contenedores:test
     - name: Ejecutar test en el contenedor
       run: | 
-        docker run --rm ghcr.io/igneer/ci-cd_contenedores:test pytest test-calculadora.py
+        docker run --rm ghcr.io/igneer/ci-cd_contenedores:test pytest test-calculadora.py && docker run --rm ghcr.io/igneer/ci-cd_contenedores:test ruff check test-calculadora.py
 
     - name: Build and Push Final Image
       uses: docker/build-push-action@v6
