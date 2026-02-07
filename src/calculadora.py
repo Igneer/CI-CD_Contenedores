@@ -8,7 +8,7 @@ class Calculadora:
         return a//b #con error para luego aplicar CI
     
     def suma(self, a:int, b:int):
-        return a + b
+        return 0
     
     def resta(self, a :int, b :int):
         return a - b
