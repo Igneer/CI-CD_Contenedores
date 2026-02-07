@@ -15,7 +15,8 @@ Para poder utilizar el proyecto de manera local es primero necesario tener insta
 
 Mediante los siguiente comando se mostrará cómo debería ser un proceso normal para utilizarlo, estos comando pueden ser utilizados tanto en Bash como en PowerShell:
 1. **Clonar el repositorio:**
-
+Para tener el repositorio de manera local se ejecuta el siguiente comando:
+``git clone https://github.com/Igneer/CI-CD_Contenedores.git``
 
 1. **Construir la imagen en Docker:**  
  Este paso sirve para generar el espacio donde se estará corriendo el proyecto.    
@@ -27,8 +28,12 @@ Con el siguiente comando se realizarán las pruebas y se detectará tanto errore
 En caso de encontrar un error, luego de corregirlo se puede reconstruir la imagen de Docker con el siguiente comando.   
 ``docker build -t mi-calculadora:latest .``
 
+1. **Modificaciones**
+Luego de haber corregido o hacer alguna adición sobre el codigo, y se corrobora que se quiera subir dichas modificaciones y funcionen correctamente. Se actualizan los cambios en el repo con los siguientes comandos:
 
-
+``git add .``
+``git commit -m "Comentario explicando la modificación realizada"``
+``git push -u origin main``
 
 ## Desarrollo práctico
 
