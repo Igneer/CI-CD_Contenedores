@@ -5,6 +5,30 @@ Para llevar a cabo el proyecto sobre la implementación de **CI/CD**, que es una
  
 Luego para poder generar los despliegues en la rama correspondiente (en este caso la main) crearemos, a traves de, Github Actions el despliegue continuo **CD** configurando los parámetros dentro del archivo .yaml
 
+## Pasos para implementar  el proyecto de manera local 
+
+<!-- 
+Una vez realizado los cambios que "rompen" la funcionalidad correcta hay que actualizar la imagen de Docker creada para que se vean reflejados los cambios con el siguiente comando:
+docker build -t mi-calculadora:latest . -->
+Para poder utilizar el proyecto de manera local es primero necesario tener instalado la herramienta necesaria para poder utilizarlo, la cual es  Docker.
+
+
+Mediante los siguiente comando se mostrará cómo debería ser un proceso normal para utilizarlo, estos comando pueden ser utilizados tanto en Bash como en PowerShell:
+1. **Clonar el repositorio:**
+
+
+1. **Construir la imagen en Docker:**  
+ Este paso sirve para generar el espacio donde se estará corriendo el proyecto.    
+``docker build -t mi-calculadora .``
+1. **Ejecutar un contenedor temporal de la imagen buildeada en Docker:**
+Con el siguiente comando se realizarán las pruebas y se detectará tanto errores de implementación como de linteo.    
+ ``docker run --rm mi-calculadora ruff check . && docker run --rm mi-calculadora pytest test-calculadora.p ``
+1. **Actualizar la imagen de Docker:**   
+En caso de encontrar un error, luego de corregirlo se puede reconstruir la imagen de Docker con el siguiente comando.   
+``docker build -t mi-calculadora:latest .``
+
+
+
 
 ## Desarrollo práctico
 
