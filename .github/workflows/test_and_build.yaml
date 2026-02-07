@@ -40,7 +40,7 @@ jobs:
           context: .
           # push: true
           load: true
-          tags: ghcr.io/igneer/ci-cd_contenedores:latest
+          tags: ghcr.io/igneer/ci-cd_contenedores:test
     - name: Ejecutar test en el contenedor
       run: | 
         docker run --rm ghcr.io/igneer/ci-cd_contenedores:test pytest src/test-calculadora.py
